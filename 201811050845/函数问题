@@ -1,0 +1,63 @@
+（1）通过返回值将新数c传给主函数
+#include<iostream>
+	using namespace std;
+	
+
+	int fun(int a,int b)
+	{
+		int c;
+		return c=b/10+b%10*100+a/10*10+a%10*1000;
+	}
+	
+
+	int  main()
+	{
+		int a,b;
+		cin>>a>>b;
+		int c=fun(a,b);
+		cout<<c;
+		return 0;
+	} 
+（2）通过引用参数将新数传给主函数
+#include<iostream>
+	using namespace std;
+	
+
+	void fun(int a,int b,int &c)
+	{
+		c=b/10+b%10*100+a/10*10+a%10*1000;
+	}
+	
+
+	int main()
+	{
+		int a,b,c;
+		cin>>a>>b;
+		fun(a,b,c);
+		cout<<c;
+	} 
+（3）通过指针型参数将新数传给主函数
+
+#include<iostream>
+	#include<cstdlib>
+	using namespace std;
+	int *fun(int a,int b)
+	{
+		int *p;
+		p=(int*)malloc(sizeof(int));
+		*p=b/10+b%10*100+a/10*10+a%10*1000;
+		return p;
+	}
+	
+
+	int main()
+	{
+		int a,b;
+		int *c;
+		cin>>a>>b;
+		c=fun(a,b);
+		cout<<*c;
+		free(c);
+	}
+	
+
